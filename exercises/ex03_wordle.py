@@ -1,10 +1,10 @@
-"""EX03 - Structured Wordle"""
+"""EX03 - Structured Wordle."""
 
 __author__ = "730568755"
 
 
 def contains_char(word: str, char: str) -> bool:
-    """Finds character whithin indicies"""
+    """Finds character whithin indicies."""
     assert len(char) == 1
     i: int = 0
     char_exists: bool = False
@@ -20,7 +20,7 @@ def contains_char(word: str, char: str) -> bool:
         return False
 
 def emojified(guess: str, secret: str) -> str:
-    """Apply a emoji based off contains_char bools"""
+    """Apply a emoji based off contains_char bools."""
     assert len(guess) == len(secret)
     WHITE_BOX: str = "\U00002B1C"
     GREEN_BOX: str = "\U0001F7E9"
@@ -31,5 +31,10 @@ def emojified(guess: str, secret: str) -> str:
         if guess[i] == secret[i]:
             box += GREEN_BOX
         if guess[i] != secret[i]:
-            contains_char(guess, secret[i])
-    i += 1
+            contains_char(secret, guess[i])
+            if contains_char(secret, guess[i]) == True:
+                box += YELLOW_BOX
+            if contains_char(secret, guess[i]) == False:
+                box += WHITE_BOX 
+        i += 1
+    return(box)
