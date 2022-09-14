@@ -20,6 +20,7 @@ def contains_char(word: str, char: str) -> bool:
         return False
     # This function determines if a character is whithin a certain word.
 
+
 def emojified(guess: str, secret: str) -> str:
     """Apply a emoji based off contains_char bools."""
     assert len(guess) == len(secret)
@@ -41,6 +42,7 @@ def emojified(guess: str, secret: str) -> str:
     return (box)
     # This function applies emojified boxes based off the contains_char function call.
 
+
 def input_guess(expectedlength: int) -> str:
     """Prompt user for guess until length is correct."""
     guess: str = input(f"Enter a {expectedlength} character word: ")
@@ -50,13 +52,14 @@ def input_guess(expectedlength: int) -> str:
         return guess
     # This function determines if the users guess is the right length and asks for another guess if it's not.
 
+
 def main() -> None:
     """The entrypoint of the program and main game loop."""
     secret: str = "codes"
     won: bool = False
     turns: int = 1
     guess: str = ""
-    while turns <= 6 and won == False:
+    while turns <= 6 and won is False:
         print(f"=== Turn {turns}/6 ===")
         guess = input_guess(len(secret))
         print(emojified(guess, secret))
@@ -67,6 +70,7 @@ def main() -> None:
             print("X/6 - Sorry, try again tomorrow!")
         turns += 1
     # This function combines all the other functions above to create wordle game!
+
 
 if __name__ == "__main__":
     main()
