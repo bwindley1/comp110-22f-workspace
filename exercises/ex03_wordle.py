@@ -18,6 +18,7 @@ def contains_char(word: str, char: str) -> bool:
         return True
     else:
         return False
+    # This function determines if a character is whithin a certain word.
 
 def emojified(guess: str, secret: str) -> str:
     """Apply a emoji based off contains_char bools."""
@@ -32,21 +33,40 @@ def emojified(guess: str, secret: str) -> str:
             box += GREEN_BOX
         if guess[i] != secret[i]:
             contains_char(secret, guess[i])
-            if contains_char(secret, guess[i]) == True:
+            if contains_char(secret, guess[i]) is True:
                 box += YELLOW_BOX
-            if contains_char(secret, guess[i]) == False:
+            if contains_char(secret, guess[i]) is False:
                 box += WHITE_BOX 
         i += 1
-    return(box)
+    return (box)
+    # This function applies emojified boxes based off the contains_char function call.
 
 def input_guess(expectedlength: int) -> str:
-    """prompt user for guess until length is correct."""
+    """Prompt user for guess until length is correct."""
     guess: str = input(f"Enter a {expectedlength} character word: ")
     while len(guess) != expectedlength:
         guess = input(f"That wasn't {expectedlength} chars! Try again: ")
     if len(guess) == expectedlength:
         return guess
+    # This function determines if the users guess is the right length and asks for another guess if it's not.
 
 def main() -> None:
     """The entrypoint of the program and main game loop."""
-    
+    secret: str = "codes"
+    won: bool = False
+    turns: int = 1
+    guess: str = ""
+    while turns <= 6 and won == False:
+        print(f"=== Turn {turns}/6 ===")
+        guess = input_guess(len(secret))
+        print(emojified(guess, secret))
+        if guess == secret:
+            print(f"You won in {turns}/6 turns!")
+            won = True
+        if turns == 6:
+            print("X/6 - Sorry, try again tomorrow!")
+        turns += 1
+    # This function combines all the other functions above to create wordle game!
+
+if __name__ == "__main__":
+    main()
