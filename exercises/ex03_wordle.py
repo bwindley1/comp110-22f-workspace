@@ -38,3 +38,15 @@ def emojified(guess: str, secret: str) -> str:
                 box += WHITE_BOX 
         i += 1
     return(box)
+
+def input_guess(expectedlength: int) -> str:
+    """prompt user for guess until length is correct."""
+    guess: str = input(f"Enter a {expectedlength} character word: ")
+    while len(guess) != expectedlength:
+        guess = input(f"That wasn't {expectedlength} chars! Try again: ")
+    if len(guess) == expectedlength:
+        return guess
+
+def main() -> None:
+    """The entrypoint of the program and main game loop."""
+    
