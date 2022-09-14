@@ -48,8 +48,7 @@ def input_guess(expectedlength: int) -> str:
     guess: str = input(f"Enter a {expectedlength} character word: ")
     while len(guess) != expectedlength:
         guess = input(f"That wasn't {expectedlength} chars! Try again: ")
-    if len(guess) == expectedlength:
-        return guess
+    return guess
     # This function determines if the users guess is the right length and asks for another guess if it's not.
 
 
