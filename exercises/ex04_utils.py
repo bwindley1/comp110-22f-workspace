@@ -30,11 +30,11 @@ def max(input: list[int]) -> int:
 
 def is_equal(first_list: list[int], second_list: list[int]) -> bool:
     """Determine if values in both lists are equal to each other."""
+    if len(first_list) != len(second_list):
+        return False
     i: int = 0
     while i < len(first_list and second_list):
         if first_list[i] != second_list[i]:
             return False
         i += 1
-    if len(first_list) != len(second_list):
-        return False
     return True
