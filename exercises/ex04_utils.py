@@ -10,6 +10,8 @@ def all(list: list[int], number: int) -> bool:
         if number != list[i]:
             return False
         i += 1
+    if len(list) == 0:
+        return False
     return True
 
 
@@ -33,4 +35,6 @@ def is_equal(first_list: list[int], second_list: list[int]) -> bool:
         if first_list[i] != second_list[i]:
             return False
         i += 1
+    if len(first_list) != len(second_list):
+        return False
     return True
