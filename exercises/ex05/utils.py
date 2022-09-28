@@ -21,10 +21,15 @@ def concat(xy: list[int], xz: list[int]) -> list[int]:
     if len(xy) == 0 and len(xz) == 0:
         return list()
     i: int = 0
-    while i < len(xz):
-        xy.append(xz[i])
+    xv: list[int] = list()
+    while i < len(xy):
+        xv.append(xy[i])
         i += 1
-    return xy
+    i: int = 0
+    while i < len(xz):
+        xv.append(xz[i])
+        i += 1
+    return xv
 
 
 def sub(xt: list[int], start: int, end: int) -> list[int]:
