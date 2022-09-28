@@ -63,7 +63,7 @@ def test_sub_full_list() -> None:
 
 def test_sub_partial_list() -> None:
     """Test if given start and end values between the length of list it returns correct sublist."""
-    xt: list [int] = [3, 65, 23, 12, 45]
+    xt: list[int] = [3, 65, 23, 12, 45]
     start: int = 1
     end: int = 3
     assert sub(xt, start, end) == [65, 23]
