@@ -17,7 +17,7 @@ def only_evens(xs: list[int]) -> list[int]:
 
 
 def concat(xy: list[int], xz: list[int]) -> list[int]:
-    """Combine the two lists given to the function"""
+    """Combine the two lists given to the function."""
     if len(xy) == 0 and len(xz) == 0:
         return list()
     i: int = 0
@@ -33,16 +33,17 @@ def concat(xy: list[int], xz: list[int]) -> list[int]:
 
 
 def sub(xt: list[int], start: int, end: int) -> list[int]:
-    """Make a list based on the start and end indexes given"""
+    """Make a list based on the start and end indexes given."""
     xv: list[int] = list()
     if start < 0:
         start = 0
     if end > len(xt):
-        end = len(xt) - 1
+        end = len(xt)
     if len(xt) == 0 or start > len(xt) or end <= 0:
-        return list() 
-    i: int = start
-    while start < len(xt[i:end]):
-        xv.append(xt[start])
-        start += 1
+        return list()
+    i: int = 0
+    while i < len(xt):
+        if i >= start and i < end:
+            xv.append(xt[i])
+        i += 1
     return xv

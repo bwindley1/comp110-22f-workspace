@@ -3,13 +3,13 @@
 __author__: str = "730568755"
 
 
-from exercises.ex05.utils import only_evens, concat
+from exercises.ex05.utils import only_evens, concat, sub
 
 
 def test_only_evens_empty() -> None:
     """Test if inputting an empty list returns an empty list."""
     xs: list[int] = []
-    assert only_evens([]) == []
+    assert only_evens(xs) == []
 
 
 def test_only_evens_two_items() -> None:
@@ -43,3 +43,27 @@ def test_concat_both_full() -> None:
     xy: list[int] = [23, 45, 900]
     xz: list[int] = [321, 5, 240, 12]
     assert concat(xy, xz) == [23, 45, 900, 321, 5, 240, 12]
+
+
+def test_sub_negative_start() -> None:
+    """Test if given a negative start value it will start from beginning of list."""
+    xt: list[int] = [1, 3, 5, 7, 9, 10]
+    start: int = -32
+    end: int = 4
+    assert sub(xt, start, end) == [1, 3, 5, 7]
+
+
+def test_sub_full_list() -> None:
+    """Test if given the start value of 0 and end value of length of list it returns full list."""
+    xt: list[int] = [1, 2, 3, 4, 5]
+    start: int = 0
+    end: int = 5
+    assert sub(xt, start, end) == [1, 2, 3, 4, 5]
+
+
+def test_sub_partial_list() -> None:
+    """Test if given start and end values between the length of list it returns correct sublist."""
+    xt: list [int] = [3, 65, 23, 12, 45]
+    start: int = 1
+    end: int = 3
+    assert sub(xt, start, end) == [65, 23]
