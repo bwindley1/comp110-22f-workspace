@@ -1,6 +1,6 @@
 """Create your own adventure exercise!"""
 
-__author__: str = 730568755
+__author__: str = "730568755"
 
 
 points: int
@@ -11,16 +11,17 @@ NCSU_MASCOT: str = "\U0001F405"
 GT_MASCOT: str = "\U0001F41D"
 
 
-def greet()-> None:
+def greet() -> None:
     """A message to explaine game and aquire players name."""
     global player
     print("Welcome to UNC Basketball Trivia! \nA game that will test your knowledge about various UNC Basketball stats and facts.")
     player = input("In order to continue, what name would you like to be referred to as?: ")
 
 
-def normalmode()-> None:
+def normalmode() -> None:
     """One of the directions the game can take."""
     global points
+    global player
     print(f"\nExcellent choice {player}! Let's start with something easy.")
     q1: str = f"What is the animal of UNC's beloved mascot? \n A. {NCSU_MASCOT}\n B. {GT_MASCOT}\n C. {UNC_MASCOT}\n D. {CLEMSON_MASCOT}\n"
     a1: str = input(f"{q1}Choose one by typing A, B, C, or D: ")
@@ -61,10 +62,11 @@ def normalmode()-> None:
         print("Seriously! You don't remember?")
 
 
-def hardmode(x: int)-> int:
+def hardmode(x: int) -> int:
     """One of the directions the game can take."""
-    hardpoints: str = x
+    hardpoints: int = x
     from random import randint
+    global player
     print(f"\nOh so you think you're tough {player}? For choosing hardmode, you will benefit from receiving a random number of points between 1-3 for correclty answering a question!.\n")
     q1: str = "Who is the all time leader in assists at UNC? \n A. Ed Cota\n B. Phil Ford\n C. Kendall Marshall\n D. Kenny Smith\n"
     a1: str = input(f"{q1}Choose one by typing A, B, C, or D: ")
@@ -110,8 +112,9 @@ def gameloop() -> None:
     """Gives player a choice to keep playing or quit."""
     print("\nCongrats on completeing a run through of UNC Basketball Trivia!")
     global points
+    global player
     playing: bool = True
-    while playing == True:
+    while playing is True:
         mode: str = input("\nIf you would like to stop playing, type 'Neither'. If you wish to continue to hardmode, type 'Hard'. If you wish to continue to normalmode, type 'Normal': ")
         if mode == "Normal":
             normalmode()
@@ -124,9 +127,10 @@ def gameloop() -> None:
             playing = False
 
 
-def main()-> None:
+def main() -> None:
     """Function holding all the elements of game."""
     greet()
+    global player
     print(f"\nGreat! So {player}, we have two different modes for you to choose from. If you consider yourself a UNC Basketball connoisseur we have a hard mode. Otherwise if your not sure of your skills, you can stick with our normal mode. If your not interested in the game you can defer.")
     mode: str = input("Type Hard, Normal, or Neither to choose: ")
     global points
